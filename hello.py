@@ -14,7 +14,7 @@ oauth = OAuth()
 twitter = oauth.remote_app('twitter',
     # unless absolute urls are used to make requests, this will be added
     # before all URLs.  This is also true for request_token_url and others.
-    base_url='https://api.twitter.com/1/',
+    base_url='https://api.twitter.com/1.1/',
     # where flask should look for new request tokens
     request_token_url='https://api.twitter.com/oauth/request_token',
     # where flask should exchange the token with the remote application
@@ -46,13 +46,12 @@ def get_twitter_token():
 @app.route('/')
 def index():
     tweets = None
-    if g.user is not None:
-        resp = twitter.get('statuses/home_timeline.json')
-        if resp.status == 200:
-            tweets = resp.data
-        else:
-            flash('Unable to load tweets from Twitter. Maybe out of '
-                  'API calls or Twitter is overloaded.')
+    resp = twitter.get('search/tweets.json?q=b1gcats')
+    if resp.status == 200:
+        tweets = resp.data
+    else:
+        flash('Unable to load tweets from Twitter. Maybe out of '
+              'API calls or Twitter is overloaded.')
     return render_template('index.html', tweets=tweets)
 
 
