@@ -2,18 +2,12 @@ from flask import Flask, request, redirect, url_for, session, flash, g, \
      render_template
 from flask_oauth import OAuth
 
-from sqlalchemy import create_engine, Column, Integer, String
-from sqlalchemy.orm import scoped_session, sessionmaker
-from sqlalchemy.ext.declarative import declarative_base
-
 # configuration
-SECRET_KEY = 'development key'
 DEBUG = True
 
 # setup flask
 app = Flask(__name__)
 app.debug = DEBUG
-app.secret_key = SECRET_KEY
 oauth = OAuth()
 
 # Use Twitter as example remote application
@@ -34,43 +28,6 @@ twitter = oauth.remote_app('twitter',
     consumer_key='IOvCZlOF3IHPqciM5tbDEA',
     consumer_secret='qLBqyus7BiEqm88cx08cnjBme0Dye1oemM2XdXtmKs'
 )
-
-# setup sqlalchemy
-engine = create_engine('sqlite:////tmp/test.db', convert_unicode=True)
-db_session = scoped_session(sessionmaker(autocommit=False,
-                                         autoflush=False,
-                                         bind=engine))
-Base = declarative_base()
-Base.query = db_session.query_property()
-
-
-def init_db():
-    Base.metadata.create_all(bind=engine)
-
-
-class User(Base):
-    __tablename__ = 'users'
-    id = Column('user_id', Integer, primary_key=True)
-    name = Column(String(60))
-    oauth_token = Column(String(200))
-    oauth_secret = Column(String(200))
-
-    def __init__(self, name):
-        self.name = name
-
-
-@app.before_request
-def before_request():
-    g.user = None
-    if 'user_id' in session:
-        g.user = User.query.get(session['user_id'])
-
-
-@app.after_request
-def after_request(response):
-    db_session.remove()
-    return response
-
 
 @twitter.tokengetter
 def get_twitter_token():
