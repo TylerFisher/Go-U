@@ -1,8 +1,9 @@
 <html>
 <head>
+	<script src="../static/js/jquery-1.8.3.min.js" type="text/javascript"></script>
+	<script src="../static/js/tweets.js" type="text/javascript"></script>
 	<link rel="stylesheet" href="../static/bootstrap/css/bootstrap-responsive.css" type="text/css">
 	<link rel="stylesheet" href="../static/stylesheets/gou.css">
-	<script src="http://code.jquery.com/jquery-latest.js"></script>
 	<script>
 		function jump(){
 			var number = parseInt(document.getElementById('coin-number').innerHTML);
@@ -12,13 +13,13 @@
 				document.getElementById('willie').style.backgroundImage = "url('../static/img/jumpingwillie.png')";
 				number += 1;
 				document.getElementById('coin-number').innerHTML = number;
-				
+
 				var myVar=setInterval(function(){sit()},2000);
-				
+
 				function sit(){
 					document.getElementById('willie').style.backgroundImage = "url('../static/img/standingwillie.png')";
 				}
-				
+
 			}
 			else {
 				number +=1;
@@ -37,9 +38,7 @@
 			<div id="willie" class="row-fluid" style="background-image:url('../static/img/standingwillie.png')">
 			</div>
 		</div>
-		<div id="tweets" class="span3">
-			tweets go here
-		</div>
+		<div id="tweets" class="span3"></div>
 		<button onClick='jump()' class="btn">Jump</button>
 	</div>
 </body>

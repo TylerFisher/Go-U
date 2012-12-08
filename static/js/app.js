@@ -14,7 +14,6 @@
         self.params = {
             type: 'GET',
             dataType: 'jsonp',
-            url: config.DATA_FILE,
             jsonp: false,
             jsonpCallback: 'ev',
             processData: false,
@@ -76,7 +75,7 @@
             // Start polling for updates to live stream
             setInterval(function() {
                 self.fetch();
-            }, config.POLL_RATE);
+            }, 60000);
         };
 
         self.start = function() {
@@ -96,7 +95,7 @@
             limit: 8,
             container: '#tweets',
             allow_more: true,
-            handles: config.DEFAULT_TWITTER_HANDLES
+            handles: 'b1gcats'
         };
         self = $.extend(self, defaults, opts);
 
@@ -104,18 +103,7 @@
 
         self.endpoint = "http://search.twitter.com/search.json";
 
-        self.query = function() {
-            var q = 'from:';
-
-            $.each(self.handles, function(i, handle) {
-                q += handle;
-
-                if ( handle !== self.handles[self.handles.length - 1] )
-                    q += ' OR from:';
-            });
-
-            return '?q=' + escape(q);
-        };
+        self.query = 'b1gcats';
 
         self.ajax_url = function() {
             return self.endpoint + self.query() + "&rpp=" + self.limit + "&include_entities=true";
@@ -292,70 +280,6 @@
 
         return self.start();
     };
-
-    // Setup tweeters
-    var tweeters = function(opts) {
-
-        var self = this;
-
-        self = $.extend(self, {
-            limit: 5,
-            container: "#tweeters",
-            handles: config.DEFAULT_TWITTER_HANDLES
-        }, opts);
-
-        self.endpoint = "http://api.twitter.com/1/users/show.json?screen_name=";
-
-        self.template = '<div class="tweet-bio"><div class="tweet-thumb"></div><div class="tweet-author"><div class="tweet-name"></div> <div class="tweet-handle"></div> <div class="tweet-desc"></div></div>';
-
-        self.success = function(data) {
-            var elem = $(self.template);
-
-            elem.find('.tweet-thumb').html(
-                '<img src="' + data.profile_image_url + '" />');
-            elem.find('.tweet-name').html(
-                '<a href="http://twitter.com/' +
-                data.screen_name +'">' +
-                data.name +
-                '</a>');
-            elem.find('.tweet-handle').html('@' + data.screen_name);
-            elem.find('.tweet-desc').html(data.description);
-
-            $(self.container).prepend(elem);
-            elem.fadeIn(1000);
-        };
-
-        self.params = {
-            type: 'GET',
-            dataType: 'jsonp',
-            success: function(data) {
-                self.success(data);
-            }
-        };
-
-        self.populate = function() {
-            $("#tweeters").html("");
-
-            var handles = self.handles;
-
-            $.each($.randomize(handles), function(i, handle) {
-                if ( i == self.limit )
-                    return false;
-
-                var params = $.extend(
-                    self.params, {url: self.endpoint + handle});
-                $.ajax(params);
-            });
-        };
-
-        self.start = function() {
-            self.populate();
-            return self;
-        };
-
-        return self.start();
-    };
-
 
     // Utilities
     var escape_html = function(text) {

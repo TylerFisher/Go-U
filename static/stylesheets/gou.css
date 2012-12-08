@@ -1,3 +1,21 @@
+@font-face {
+	font-family: "Silkscreen";
+	src: url('http://www.tylerjfisher.com/fonts/slkscr.eot');
+	src: url('http://www.tylerjfisher.com/fonts/slkscr.ttf');
+	font-weight: normal;
+}
+
+@font-face {
+    font-family: "Silkscreen";
+	src: url('http://www.tylerjfisher.com/fonts/slkscrb.eot');
+ 	src: url('http://www.tylerjfisher.com/fonts/slkscrb.ttf');
+ 	font-weight: bold;
+}
+
+body {
+	font-family: "Silkscreen";
+}
+
 #willie {
 	height: 306px;
 	background-repeat: no-repeat;
@@ -23,8 +41,44 @@ h3 {
 }
 
 #tweets {
-	color: #ffffff;
+	color: #000;
 	padding: 10px;
 	height: 500px;
 	background-color: #512698;
+	overflow: auto;
+}
+
+.tweet {
+	border-radius: 5px;
+	margin-bottom: 10px;
+	background-color: whitesmoke;
+	padding-bottom: 5px;
+	overflow-y: hidden;
+
+}
+
+.tweet_info {
+	width: 66%;
+	float: right;
+}
+
+.user {
+	padding-bottom: 5px;
+	padding-top: 8px;
+	font-weight: bold;
+}
+
+.user_img {
+	width: 25%;
+	float: left;
+	padding-left: 8px;
+	padding-top: 8px;
+}
+
+.user_img img {
+	width: 48px;
+	height: auto;
+}
+
+.tweet_text {
 }
