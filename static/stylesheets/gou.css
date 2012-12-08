@@ -1,0 +1,30 @@
+#willie {
+	height: 306px;
+	background-repeat: no-repeat;
+}
+
+#coinbox {
+	height: 125px;
+	width: 125px;
+	background-repeat: no-repeat;
+	position: relative;
+	left: 200px;
+	text-align: center;
+}
+
+h2 {
+	color: #512698;
+	margin-left: 40px;
+}
+
+h3 {
+	margin: 22px;
+	font-size: 75px;
+}
+
+#tweets {
+	color: #ffffff;
+	padding: 10px;
+	height: 500px;
+	background-color: #512698;
+}

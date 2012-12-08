@@ -1,29 +1,46 @@
-{% extends "layout.html" %}
-{% block body %}
-  <h2>Overview</h2>
-  {% if g.user %}
-    <p>
-      Hello {{ g.user.name }}!  Wanna tweet something?
-    <form action="{{ url_for('tweet') }}"  method=post>
-      <p>
-        <input type=text name=tweet size=40>
-        <input type=submit value="Tweet!">
-    </form>
-    {% if tweets %}
-    <h3>Your Timeline</h3>
-    <ul>
-    {% for tweet in tweets %}
-      <li><a href="http://twitter.com/{{ tweet.user.screen_name
-        }}">{{ tweet.user.screen_name }}</a>: {{ tweet.text|urlize }}
-    {% endfor %}
-    </ul>
-    {% endif %}
-  {% else %}
-    <p>
-      Sign in to view your public timeline and to tweet from this
-      example application.
-    <p>
-      <a href="{{ url_for('login') }}"><img src="{{
-        url_for('static', filename='sign-in.png') }}" alt="sign in"></a>
-  {% endif %}
-{% endblock %}
+<html>
+<head>
+	<link rel="stylesheet" href="../static/bootstrap/css/bootstrap-responsive.css" type="text/css">
+	<link rel="stylesheet" href="../static/stylesheets/gou.css">
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+	<script>
+		function jump(){
+			var number = parseInt(document.getElementById('coin-number').innerHTML);
+			console.log('HEY');
+			if (document.getElementById('willie').style.backgroundImage == "url(file://localhost/Users/hilaryfung/Code/Go-U/static/img/standingwillie.png)")
+			{
+				document.getElementById('willie').style.backgroundImage = "url('../static/img/jumpingwillie.png')";
+				number += 1;
+				document.getElementById('coin-number').innerHTML = number;
+				
+				var myVar=setInterval(function(){sit()},2000);
+				
+				function sit(){
+					document.getElementById('willie').style.backgroundImage = "url('../static/img/standingwillie.png')";
+				}
+				
+			}
+			else {
+				number +=1;
+				document.getElementById('coin-number').innerHTML = number;
+			}
+		}
+	</script>
+</head>
+<body>
+	<div class="container-fluid">
+		<h2>Watch Willie the Wildcat jump every time someone tweets about the #B1GCats!</h2>
+		<div class="span5">
+			<div id="coinbox" class="row-fluid" style="background-image:url('../static/img/coinbox.png')">
+				<h3 id="coin-number">5</h3>
+			</div>
+			<div id="willie" class="row-fluid" style="background-image:url('../static/img/standingwillie.png')">
+			</div>
+		</div>
+		<div id="tweets" class="span3">
+			tweets go here
+		</div>
+		<button onClick='jump()' class="btn">Jump</button>
+	</div>
+</body>
+</html>
