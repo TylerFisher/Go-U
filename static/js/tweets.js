@@ -1,10 +1,12 @@
 var search = function () {
-        var url = "http://search.twitter.com/search.json?q=b1gcats";
+        var url = "http://search.twitter.com/search.json?q=b1gcats&callback=?";
         $.getJSON(url, handleRequest);
     }
 
 function handleRequest(data) {
     $('#tweets').empty();
+    console.log(data.results[0]['text']);
+    
     for (var i = 0; i < data.results.length; i++) {
         $('#tweets').append(buildTweet(data.results[i]));
     }
@@ -22,4 +24,5 @@ function buildTweet(tweet) {
 
 $(document).ready(function () {
     search();
+    var interval=setInterval(function(){search()},60000);
 });
