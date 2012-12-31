@@ -5,7 +5,7 @@
 	<link rel="stylesheet" href="../static/bootstrap/css/bootstrap-responsive.css" type="text/css">
 	<link rel="stylesheet" href="../static/stylesheets/gou.css">
 	<script>
-		function jump(){
+		/* function jump(){
 			var number = parseInt(document.getElementById('coin-number').innerHTML);
 			console.log('JUMP');
 			if (document.getElementById('willie').style.backgroundImage == "url(file://localhost/Users/hilaryfung/Code/Go-U/static/img/standingwillie.png)")
@@ -25,7 +25,7 @@
 				number +=1;
 				document.getElementById('coin-number').innerHTML = number;
 			}
-		}
+		} */
 	</script>
 </head>
 <body>
@@ -33,14 +33,14 @@
 		<h2>Watch Willie the Wildcat jump every time someone tweets about the #B1GCats!</h2>
 		<div class="span5">
 			<div id="coinbox" class="row-fluid" style="background-image:url('../static/img/coinbox.png')">
-				<h3 id="coin-number">5</h3>
+				<h3 id="coin-number">0</h3>
 			</div>
 			<div id="willie" class="row-fluid" style="background-image:url('../static/img/standingwillie.png')">
 			</div>
 		</div>
 		<div id="tweets" class="span5"></div>
-		<button onClick='jump()' class="btn">Jump</button>
-		<audio src="../static/mp3/gou.mp3" autoplay="true"></audio>
+		<button onClick='williejump(1)' class="btn">Jump</button>
+		<audio src="../static/mp3/gou.mp3" autoplay="true" ></audio>
 	</div>
 </body>
 </html>

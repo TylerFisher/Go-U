@@ -34,18 +34,18 @@ function buildTweet(tweet) {
 };
 
 var williejump = function(jumps) {
-    var number = parseInt($('#coin-number').innerHTML);
+    var number = parseInt(document.getElementById('coin-number').innerHTML);
+    console.log(number);
     for (i = 0; i < jumps; i++) {
-        console.log(i);
-        $('#willie').css("background-image", "url('../static/img/jumpingwillie.png')");
-        number += 1;
-        $('#coin-number').innerHTML = number;
-
         var myVar=setInterval(function(){sit()},2000);
 
         function sit(){
              $('#willie').css("backgroundImage", "url('../static/img/standingwillie.png')");
+             console.log(i);
         }
+        $('#willie').css("background-image", "url('../static/img/jumpingwillie.png')");
+        number += 1;
+        document.getElementById('coin-number').innerHTML = number;
     }
 };
 
