@@ -30,13 +30,18 @@ body {
 	text-align: center;
 }
 
+#disclaimer {
+	font-size: 10px;
+}
+
 h2 {
 	color: #512698;
 	margin-left: 40px;
 }
 
 h3 {
-	margin: 22px;
+	margin-top: 5px;
+	margin-bottom: 0px;
 	font-size: 75px;
 }
 

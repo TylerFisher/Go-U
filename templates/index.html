@@ -30,17 +30,18 @@
 </head>
 <body>
 	<div class="container-fluid">
-		<h2>Watch Willie the Wildcat jump every time someone tweets about the #B1GCats!</h2>
+		<h2>Watch Willie the Wildcat jump for every time someone tweets about the #B1GCats!</h2>
 		<div class="span5">
 			<div id="coinbox" class="row-fluid" style="background-image:url('../static/img/coinbox.png')">
 				<h3 id="coin-number">0</h3>
+				<p id="disclaimer">Tweets since you logged on</p>
 			</div>
 			<div id="willie" class="row-fluid" style="background-image:url('../static/img/standingwillie.png')">
 			</div>
 		</div>
 		<div id="tweets" class="span5"></div>
 		<button onClick='williejump(1)' class="btn">Jump</button>
-		<audio src="../static/mp3/gou.mp3" autoplay="true" ></audio>
+		<audio src="../static/mp3/gou.mp3" ></audio> <!-- autoplay="true" -->
 	</div>
 </body>
 </html>
