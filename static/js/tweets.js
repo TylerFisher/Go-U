@@ -37,6 +37,7 @@ var williejump = function(jumps) {
     var number = parseInt(document.getElementById('coin-number').innerHTML);
     console.log(number);
     for (i = 0; i < jumps; i++) {
+        document.getElementById('jumpSound').Play();
         var myVar=setInterval(function(){sit()},2000);
 
         function sit(){
