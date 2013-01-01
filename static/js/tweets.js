@@ -15,7 +15,7 @@ function handleRequest(data) {
         if (first_tweet == "") {
             return false;
         }
-        else if (first_tweet == data.results[i]['text']) {
+        else if (first_tweet == data.results[i]['text'] && i>0){
             williejump(i);
         }
         $('#tweets').append(buildTweet(data.results[i]));
@@ -37,19 +37,29 @@ var williejump = function(jumps) {
     var number = parseInt(document.getElementById('coin-number').innerHTML);
     console.log(number);
     for (i = 0; i < jumps; i++) {
-        document.getElementById('jumpSound').Play();
-        var myVar=setInterval(function(){sit()},2000);
-
-        function sit(){
-             $('#willie').css("backgroundImage", "url('../static/img/standingwillie.png')");
-             console.log(i);
-        }
-        $('#willie').css("background-image", "url('../static/img/jumpingwillie.png')");
         number += 1;
         document.getElementById('coin-number').innerHTML = number;
     }
+    
+    document.getElementById('jumpSound').play();
+    var myVar=setTimeout(function(){sit()},2000);
+
+    function sit(){
+         $('#willie').css("backgroundImage", "url('static/img/standingwillie.png')");
+         console.log(i);
+        }
+    $('#willie').css("background-image", "url('static/img/jumpingwillie.png')");
+
 };
 
+function clickJump() {
+    document.getElementById('jumpSound').play();
+    var myVar=setTimeout(function(){sit()},2000);
+    function sit(){
+         $('#willie').css("backgroundImage", "url('static/img/standingwillie.png')");
+    }
+    $('#willie').css("background-image", "url('static/img/jumpingwillie.png')");
+};
 
 $(document).ready(function () {
     search();

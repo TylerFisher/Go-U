@@ -35,9 +35,20 @@ body {
 	font-size: 10px;
 }
 
+.credits {
+	font-size: 10px;
+	margin-left: 40px;
+	margin-top: 0px;
+}
+
+h1 {
+	margin: 0px 0px 0px 40px;
+}
+
 h2 {
 	color: #130654;
 	margin-left: 40px;
+	margin-top: 10px;
 }
 
 h3 {
