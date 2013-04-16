@@ -43,12 +43,14 @@ body {
 
 h1 {
 	margin: 0px 0px 0px 40px;
+	font-weight: normal;
 }
 
 h2 {
 	color: #130654;
 	margin-left: 40px;
 	margin-top: 10px;
+	font-weight: normal;
 }
 
 h3 {
@@ -101,16 +103,20 @@ h3 {
 }
 
 .btn {
-	background-color:#130654;
+	border: none;
+	background-color: #130654;
 	-moz-border-radius:6px;
 	-webkit-border-radius:6px;
 	border-radius:6px;
-	display:inline-block;
-	color:#ffffff;
-	font-size:25px;
-	font-weight:normal;
-	padding:6px 24px;
-	text-decoration:none;
+	display: inline-block;
+	color: #ffffff;
+	font-size: 25px;
+	font-weight: normal;
+	padding: 2%;
+	text-decoration: none;
+	text-shadow: none;
+	background-image: none;
 	
 }.btn:hover {
+	color: #fff;
 	background-color:#382b7a;
