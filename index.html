@@ -4,7 +4,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<script src="static/js/jquery-1.8.3.min.js" type="text/javascript"></script>
 	<script src="static/js/tweets.js" type="text/javascript"></script>
-	<link rel="stylesheet" href="static/bootstrap/css/bootstrap-responsive.css" type="text/css">
+	<link rel="stylesheet" href="static/bootstrap/css/bootstrap.css" type="text/css">
+    <link rel="stylesheet" href="static/bootstrap/css/bootstrap-responsive.css" type="text/css">
 	<link rel="stylesheet" href="static/stylesheets/gou.css">
 	<script>
 		/* function jump(){
@@ -31,22 +32,21 @@
 	</script>
 </head>
 <body>
-	<div class="container-fluid">
-	<h1>Go U Northwestern</h1> <h2>Watch Willie the Wildcat jump when someone tweets about the #B1GCats!</h2>
-	
-<div>
-	<p class="credits">Built by <a href="https://twitter.com/euphonos">Tyler Fisher</a>, <a href="https://twitter.com/hil_fung">Hilary Fung</a> and <a href="https://twitter.com/DanHillReports">Dan Hill</a></br>
-Music by <a href="http://www.youtube.com/watch?v=uNpX_qYnXUA">Michael Kenny</a></p>
-</div>
+<div class="container-fluid">
+	<div class="row-fluid">
+		<h1>Go U Northwestern</h1> <h2>Watch Willie the Wildcat jump when someone tweets about the #B1GCats!</h2>
+		
+			<p class="credits">Built by <a href="https://twitter.com/euphonos">Tyler Fisher</a>, <a href="https://twitter.com/hil_fung">Hilary Fung</a> and <a href="https://twitter.com/DanHillReports">Dan Hill</a></br>
+		Music by <a href="http://www.youtube.com/watch?v=uNpX_qYnXUA">Michael Kenny</a></p>
+	</div>
 
-
-		<div class="span5">
-			<div id="coinbox" class="row-fluid" style="background-image:url('static/img/coinbox.png')">
+	<div class="row-fluid">
+		<div class="span6">
+			<div id="coinbox" style="background-image:url('static/img/coinbox.png')">
 				<h3 id="coin-number">0</h3>
 				<p id="disclaimer">Tweets since you logged on</p>
 			</div>
-			<div id="willie" class="row-fluid" style="background-image:url('static/img/standingwillie.png')">
-			</div>
+			<div id="willie" style="background-image:url('static/img/standingwillie.png')"></div>
 			<button onClick='clickJump()' class="btn" style="font-family:Silkscreen">or click to jump</button>
 		</div>
 		<div id="tweets" class="span6"></div>
@@ -55,5 +55,6 @@ Music by <a href="http://www.youtube.com/watch?v=uNpX_qYnXUA">Michael Kenny</a><
 		<audio src="static/mp3/jump.mp3" autostart=false width=1 height=1 id="jumpSound" preload="auto"
 enablejavascript="true">
 	</div>
+</div>
 </body>
 </html>

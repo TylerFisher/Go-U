@@ -29,6 +29,7 @@ body {
 	position: relative;
 	left: 200px;
 	text-align: center;
+	padding-top: 20px;
 }
 
 #disclaimer {
@@ -36,7 +37,6 @@ body {
 }
 
 .credits {
-	font-size: 10px;
 	margin-left: 40px;
 	margin-top: 0px;
 }
@@ -58,7 +58,7 @@ h3 {
 }
 
 #tweets {
-	/* padding: 10px; */
+	padding: 2%;
 	height: 500px;
 	background-color: #ffffff;
 	overflow: auto;
@@ -108,7 +108,7 @@ h3 {
 	display:inline-block;
 	color:#ffffff;
 	font-size:25px;
-	font-weight:bold;
+	font-weight:normal;
 	padding:6px 24px;
 	text-decoration:none;
 	
